@@ -1,0 +1,16 @@
+{
+  "name": "continue-yonder",
+  "version": "1.0.0",
+  "description": "A continue conversation over here bot for Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Paul Hagstrom",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {}
+}

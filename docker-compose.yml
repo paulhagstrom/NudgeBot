@@ -1,0 +1,8 @@
+version: '3'
+services:
+  bot:
+    build: .
+    image: continue-yonder-bot
+    container_name: continue_yonder_bot
+    restart: always
+    
