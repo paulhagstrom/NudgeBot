@@ -2,6 +2,9 @@ module.exports = {
     name: 'entry',
     description: 'Mark as contest entry',
     execute(message, args) {
+	// it must be in #hey-robot
+	allowableChannel = message.guild.channels.cache.find(c => c.name == 'hey-robot');
+	if (message.channel != allowableChannel) return;
 	// there must be an attachment
 	if (message.attachments.size < 1) return;
 	// take the first attachement
