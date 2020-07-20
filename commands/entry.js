@@ -14,7 +14,6 @@ module.exports = {
 		if (oldEntry) {
 		    // if there already is an entry, delete it (along with its votes)
 		    // an alternative to deletion might be to mark it as superseded
-		    // oldEntry.react('🍎');
 		    oldEntry.delete(1000);
 		}
 	    });
