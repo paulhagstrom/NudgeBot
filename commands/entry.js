@@ -14,12 +14,14 @@ module.exports = {
 		if (oldEntry) {
 		    // if there already is an entry, delete it (along with its votes)
 		    // an alternative to deletion might be to mark it as superseded
-		    oldEntry.delete(1000);
+		    oldEntry.delete()
+			.then(msg => console.log('Deleted entry.')).catch(console.error);
+		    // oldEntry.react('\u{1F6D1}');
 		}
 	    });
 	const jumpstring = `\n[Jump to original context](${message.url})`;
 	const embed = {
-	    description: message.cleanContent + jumpstring,
+	    description: `<@${message.author.id}> ` + message.cleanContent + jumpstring,
 	    author: {
 		name: message.member.displayName,
 		icon_url: message.author.displayAvatarURL(),
@@ -33,6 +35,6 @@ module.exports = {
 	    },
 	}
 	entryChannel.send({ embed })
-	    .then(msg => msg.react('👍'));
+	    .then(msg => msg.react('\u{1F44D}'));
     },
 };
