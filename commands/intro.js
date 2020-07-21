@@ -2,19 +2,12 @@ module.exports = {
     name: 'intro',
     description: 'Submit introduction to roster channel',
     execute(message, args) {
-        // posts from #hey-robot go to #photo-roster
-        monitorChannel = message.guild.channels.cache.find(c => c.name == 'hey-robot');
+        // posts from #corcoran-lobby go to #photo-roster
+        monitorChannel = message.guild.channels.cache.find(c => c.name == 'corcoran-lobby');
         targetChannel = message.guild.channels.cache.find(c => c.name == 'photo-roster');
         if (message.channel != monitorChannel) return;
-        // use attachment if there is one
-        if (message.attachments.size > 0) {
-            // take the first attachement
-            const image = {
-                url: message.attachments.array()[0].url,
-            };
-        } else {
-            const image = {};
-        }
+        // use attachment if there is one (take the first one)
+        const imgAttached = (message.attachments.size > 0) ? {url: message.attachments.array()[0].url} : '';
         // see if this author already has an entry
         targetChannel.messages.fetch({ limit: 100 })
             .then(fetched => {
@@ -29,7 +22,7 @@ module.exports = {
             });
         const jumpstring = `\n[Jump to original context](${message.url})`;
         const embed = {
-            description: `<@${message.author.id}> ` + message.cleanContent + jumpstring,
+            description: `<@${message.author.id}> ` + message.cleanContent.replace('!intro ','') + jumpstring,
             author: {
                 name: message.member.displayName,
                 icon_url: message.author.displayAvatarURL(),
@@ -38,7 +31,7 @@ module.exports = {
             footer: {
                 text: `${message.author.id}`,
             },
-            image: image,
+            image: imgAttached,
         }
         targetChannel.send({ embed });
         // This used to be tacked on to set up the first vote reaction.  No longer a vote though.
