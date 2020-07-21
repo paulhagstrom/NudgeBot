@@ -22,7 +22,7 @@ module.exports = {
             });
         const jumpstring = `\n[Jump to original context](${message.url})`;
         const embed = {
-            description: `<@${message.author.id}> ` + message.cleanContent.replace('!intro ','') + jumpstring,
+            description: `<@${message.author.id}> ` + message.cleanContent.replace('/\!intro\ /i','') + jumpstring,
             author: {
                 name: message.member.displayName,
                 icon_url: message.author.displayAvatarURL(),
