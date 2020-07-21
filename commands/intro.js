@@ -40,7 +40,7 @@ module.exports = {
             },
             image: image,
         }
-        entryChannel.send({ embed });
+        targetChannel.send({ embed });
         // This used to be tacked on to set up the first vote reaction.  No longer a vote though.
         //    .then(msg => msg.react('\u{1F44D}'));
     },
