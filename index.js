@@ -1,7 +1,9 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
-const client = new Discord.Client({intents: [GUILD_MESSAGES]});
+// GUILD_MESSAGES is needed for posting messages
+// MESSAGE_CONTENT is needed to repost intro
+const client = new Discord.Client({intents: [Discord.Intents.FLAGS.GUILD_MESSAGES, Discord.Intents.FLAGS.MESSAGE_CONTENT]});
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
