@@ -18,7 +18,7 @@ module.exports = {
 		const sourceEmbed = {
 		    description: `${sourcemsg}\n${jumptarget}`,
 		};
-		placed.edit({ embed: sourceEmbed });
+		placed.edit({ embeds: [sourceEmbed] });
 	    });
 	});
     },
