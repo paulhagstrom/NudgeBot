@@ -12,13 +12,15 @@ module.exports = {
 	    const targetEmbed = {
 		description: `${targetmsg}\n${jumpsource}`,
 	    };
-	    targetChannel.send({ embeds: [targetEmbed] }).then(sent => {
+	    //targetChannel.send({ embeds: [targetEmbed] }).then(sent => {
+	    targetChannel.send(`${targetmsg}\n${jumpsource}`).then(sent => {
 		const jumptarget = `Corresponding moment in ${sent.url}`;
 		const sourcemsg = "Conversation seems like it might fit better in another channel.";
 		const sourceEmbed = {
 		    description: `${sourcemsg}\n${jumptarget}`,
 		};
-		placed.edit({ embeds: [sourceEmbed] });
+		// placed.edit({ embeds: [sourceEmbed] });
+		placed.edit(`${sourcemsg}\n${jumptarget}`);
 	    });
 	});
     },
