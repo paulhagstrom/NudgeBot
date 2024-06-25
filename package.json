@@ -10,8 +10,7 @@
   "author": "Paul Hagstrom",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.15.3",
-    "nvm": "0.39.7"
+    "discord.js": "^14.15.3"
   },
   "devDependencies": {}
 }
