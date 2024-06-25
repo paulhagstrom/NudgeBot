@@ -3,7 +3,7 @@ module.exports = {
     description: 'Submit introduction to roster channel',
     execute(message, args) {
         // posts from #dorm-lobby go to #photo-roster
-        monitorChannel = message.guild.channels.cache.find(c => c.name == 'dorm-lobby');
+        monitorChannel = message.guild.channels.cache.find(c => c.name == 'hey-robot');
         targetChannel = message.guild.channels.cache.find(c => c.name == 'photo-roster');
         if (message.channel != monitorChannel) return;
         // use attachment if there is one (take the first one)
