@@ -1,6 +1,6 @@
 {
   "name": "continue-yonder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A continue conversation over here bot for Discord",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Paul Hagstrom",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^14.15.3"
   },
   "devDependencies": {}
 }
