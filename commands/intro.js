@@ -20,7 +20,7 @@ module.exports = {
                     // oldEntry.react('\u{1F6D1}');
                 }
             });
-        const jumpstring = `\n[Jump to original context](${message.url})`;
+        const jumpstring = `\nOriginal context: ${message.url.replace("discordapp.com", "discord.com")}`;
         const embed = {
             description: `<@${message.author.id}> ` + message.cleanContent.replace(/\!intro\ /i,'') + jumpstring,
             author: {
