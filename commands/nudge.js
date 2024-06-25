@@ -12,7 +12,7 @@ module.exports = {
 	    const targetEmbed = {
 		description: `${targetmsg}\n${jumpsource}`,
 	    };
-	    targetChannel.send({ embed: targetEmbed }).then(sent => {
+	    targetChannel.send({ embeds: [targetEmbed] }).then(sent => {
 		const jumptarget = `[Click here to jump over to corresponding moment in ${targetChannel}](${sent.url})`;
 		const sourcemsg = "Conversation seems like it might fit better in another channel.";
 		const sourceEmbed = {
