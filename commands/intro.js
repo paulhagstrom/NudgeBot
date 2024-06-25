@@ -5,7 +5,9 @@ module.exports = {
         // posts from #dorm-lobby go to #photo-roster
         monitorChannel = message.guild.channels.cache.find(c => c.name == 'hey-robot');
         targetChannel = message.guild.channels.cache.find(c => c.name == 'photo-roster');
-        if (message.channel != monitorChannel) return;
+        if (message.channel != monitorChannel) {
+            return message.reply(`The !intro command only works in ${monitorChannel.url.replace("discordapp.com", "discord.com")}.`);
+        }
         // use attachment if there is one (take the first one)
         const imgAttached = (message.attachments.size > 0) ? {url: message.attachments.array()[0].url} : '';
         // see if this author already has an entry
@@ -33,7 +35,7 @@ module.exports = {
             },
             image: imgAttached,
         }
-        targetChannel.send({ emdbeds: [embed] });
+        targetChannel.send({ embeds: [embed] });
         // This used to be tacked on to set up the first vote reaction.  No longer a vote though.
         //    .then(msg => msg.react('\u{1F44D}'));
     },
