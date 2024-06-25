@@ -33,9 +33,8 @@ module.exports = {
             footer: {
                 text: `${message.author.id}`,
             },
-            image: imgAttached,
         }
-        targetChannel.send({ embeds: [embed] });
+        targetChannel.send({ embeds: [embed], files: [imgAttached] });
         // This used to be tacked on to set up the first vote reaction.  No longer a vote though.
         //    .then(msg => msg.react('\u{1F44D}'));
     },
