@@ -3,7 +3,7 @@ module.exports = {
     description: 'Submit introduction to roster channel',
     execute(message, args) {
         // posts from #dorm-lobby go to #photo-roster
-        monitorChannel = message.guild.channels.cache.find(c => c.name == 'hey-robot');
+        monitorChannel = message.guild.channels.cache.find(c => c.name == 'dorm-lobby');
         targetChannel = message.guild.channels.cache.find(c => c.name == 'photo-roster');
         if (message.channel != monitorChannel) {
             return message.reply(`The !intro command only works in <#${monitorChannel.id}>.`);
