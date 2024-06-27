@@ -26,7 +26,7 @@ client.on('message', message => {
     if (message.mentions.users.size && (message.mentions.users.first()).id === client.user.id) {
 	const helpEmbed = {
 	    title: 'Nudgebot',
-	    description: "This bot just provides jump links between channels, to assist in moving a conversation to a more on topic channel.  To use it, type `!nudge #channel` by itself on a line.",
+	    description: "This bot does two things. One is providing jump links between channels, to assist in moving a conversation to a more on topic channel.  To use it, type `!nudge #channel` by itself on a line. The second is posting things to <#photo-roster> from <#dorm-lobby>. To use it, type `!intro` followed by your intro text, and attach a single photo if you wish.  This will be reposted in <#photo-roster> for you.  You can replace your entry in <#photo-roster> by doing it again.  Note that this needs to be in a single message, the photo must be attached to the message that begins with `!intro`. This robot can only see single messages.",
 	};
 	message.reply({ embed: helpEmbed });
 	return;
