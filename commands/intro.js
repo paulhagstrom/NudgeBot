@@ -38,7 +38,7 @@ module.exports = {
         };
         targetChannel.send({ embed: photoEmbed })
             .then(placed => {
-                monitorChannel.send(embed: {description: `Message ${actString} ${placed.url.replace("discordapp.com", "discord.com")}`});
+                monitorChannel.send({embed: {description: `Message ${actString} ${placed.url.replace("discordapp.com", "discord.com")}`}});
             }
         );
         
