@@ -10,6 +10,7 @@ module.exports = {
         }
         // use attachment if there is one (take the first one)
         const imgAttached = (message.attachments.size > 0) ? {url: message.attachments.array()[0].url} : {};
+        const actString = 'added to';
         // see if this author already has an entry
         targetChannel.messages.fetch({ limit: 100 })
             .then(fetched => {
@@ -19,6 +20,7 @@ module.exports = {
                     // an alternative to deletion might be to mark it as superseded
                     oldEntry.delete()
                         .then(msg => console.log('Deleted entry.')).catch(console.error);
+                    actString = 'replaced in';
                 }
             });
         const jumpstring = `\nOriginal context: ${message.url.replace("discordapp.com", "discord.com")}`;
@@ -35,5 +37,6 @@ module.exports = {
             },
         };
         targetChannel.send({ embed: photoEmbed });
+        monitorChannel.send(`Message ${actString} <#photo-roster>`);
     },
 };
